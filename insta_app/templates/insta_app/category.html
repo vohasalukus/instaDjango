@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Category</title>
+</head>
+<body>
+
+    <h2>Название категории {{ category.name }}</h2>
+    <p>Посты этой категории:</p>
+    <ul>
+        {% for post in posts %}
+            <li>
+                Название поста: {{ post.title }}
+            </li>
+        {% endfor %}
+    </ul>
+
+
+</body>
+</html>

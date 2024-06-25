@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<body>
+
+<h1>Категории:</h1>
+    <ul>
+        {% for cat in categories %}
+            <li>
+                Название категории: <a href="{% url 'post_by_category' slug=cat.slug %}">
+                                        {{ cat.name }}
+                                    </a>
+            </li>
+        {% endfor %}
+    </ul>
+
+<h2>Последние посты:</h2>
+    <ul>
+        {% for post in last_posts %}
+            <li>
+                Название поста: <a href="">
+                {{ post.title }}... <br>
+            </a>
+            </li>
+        {% endfor %}
+    </ul>
+
+<h3>Лучшие авторы года:</h3>
+    <ul>
+        {% for auth in authors %}
+            <li>
+                Имя автора: <a href="{% url 'post_by_author' slug=auth.slug %}">
+                {{ auth.name }} <br>
+            </a>
+            </li>
+        {% endfor %}
+    </ul>
+
+<div>
+    <a href="{% url 'exit' %}">Выйти из аккаунта</a>
+</div>
+
+
+<a href="{% url 'add_category' %}">Добавить категорию</a><br>
+<a href="{% url 'add_post' %}">Добавить пост</a><br>
+<a href="{% url 'add_comment' %}">Добавить комментарий</a>
+</body>
+</html>
